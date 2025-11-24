@@ -28,7 +28,9 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
     <string name="header_continue_watching">Continue watching</string>
-    <string name="update_check_json" translatable="false">https://raw.githubusercontent.com/meta11ica/TwitchVOD-AndroidTV/master/app/release/output-metadata.json</string>
+    <string name="raw_github_prefix" translatable="false">https://raw.githubusercontent.com/micha102/TwitchVOD-AndroidTV/master/app/release/</string>
+    <string name="update_check_json" translatable="false">output-metadata.json</string>
+    <string name="file_release_apk" translatable="false">app-release.apk</string>
     <string name="update_channel_name">Update App</string>
     <string name="update_channel_description">Show update notifications</string>
     <string name="latest_version_already">Latest version already installed</string>

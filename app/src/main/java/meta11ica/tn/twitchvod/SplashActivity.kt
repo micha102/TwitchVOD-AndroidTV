@@ -300,14 +300,15 @@ catch(e: Exception) {(Log.e("error","user problem"))}
     }
     fun checkForUpdates() {
         try {
-            val latestRelease = JSONObject(get(url = getString(R.string.update_check_json)).text).getJSONArray("elements").getJSONObject(0).getInt("versionCode")
+            val updateUrl = "${getString(R.string.raw_github_prefix)}${getString(R.string.update_check_json)}"
+            val latestRelease = JSONObject(get(url = updateUrl).text).getJSONArray("elements").getJSONObject(0).getInt("versionCode")
             Toast.makeText(
                 this,
                 "Current version : "+resources.getInteger(R.integer.app_version_code)+", latest release version : "+latestRelease,
                 Toast.LENGTH_SHORT
             ).show()
 
-            val aua = AutoUpdateApk(applicationContext, getString(R.string.update_check_json))
+            val aua = AutoUpdateApk(applicationContext, updateUrl)
             aua.setUpdateInterval(AutoUpdateApk.DAYS * 1);
 
         }

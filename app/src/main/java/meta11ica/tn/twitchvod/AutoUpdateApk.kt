@@ -37,6 +37,7 @@ import android.provider.Settings.Secure
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.getString
 import androidx.core.content.FileProvider
 import khttp.get
 import org.json.JSONObject
@@ -52,10 +53,6 @@ import java.util.LinkedList
 import java.util.Observable
 import java.util.zip.CRC32
 import java.util.zip.Checksum
-import khttp.get
-import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 
 
 class AutoUpdateApk : Observable {
@@ -259,15 +256,14 @@ class AutoUpdateApk : Observable {
                 if (lastversion > context!!.resources.getInteger(R.integer.app_version_code)) {
                     result[0] = "have update"
                     result[1] = ("$lastversion.apk").toString()
-                    val fileName = "app-release.apk"
+                    val fileName = getString(context!!,R.string.file_release_apk)
                     val outputFile = File(
                         context!!.filesDir,
                         result[1]
                     )
-                    val savePath = "app-release.apk"
-                    val link =
-                        "https://raw.githubusercontent.com/meta11ica/TwitchVOD-AndroidTV/master/app/release/app-release.apk"
-                    result[2] = "app-release.apk"
+                    val savePath = getString(context!!,R.string.file_release_apk)
+                    val link = "${getString(context!!,R.string.raw_github_prefix)}${getString(context!!,R.string.file_release_apk)}"
+                    result[2] = getString(context!!,R.string.file_release_apk)
                     val file = File(context!!.filesDir, result[1])
                     if(!file.exists()) {
                         val url = URL(link)
@@ -305,9 +301,9 @@ class AutoUpdateApk : Observable {
                 Log.v(TAG, "update check finished in " + elapsed + "ms")
             }
 
-            result[0] = "no update"
-            result[1] = "no file"
-            result[2] = "no file"
+            result[0] = "noupdate"
+            result[1] = "nofile"
+            result[2] = "nofile"
             return result
         }
 
@@ -564,7 +560,6 @@ editor?.commit()
         val AUTOUPDATE_NO_UPDATE = "autoupdate_no_update"
         val AUTOUPDATE_GOT_UPDATE = "autoupdate_got_update"
         val AUTOUPDATE_HAVE_UPDATE = "autoupdate_have_update"
-        val PUBLIC_API_URL = "http://www.auto-update-apk.com/check"
 
         //
         // ---------- everything below this line is private and does not belong to
