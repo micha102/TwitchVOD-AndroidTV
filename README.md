@@ -14,16 +14,14 @@ For Android TV : you are in the good place. Download the [APK here](https://gith
 
 ## Getting Started
 
-### Notes
-I implemented the add to favourites in an ugly/quick and dirty way until I really work on a Personal Settings Fragment.
 #### Add a streamer to your favourite list
 Click the Search button, then type your streamer id (username) and click Search.
-The streamer is added to your favorite list.
+Long click on the Streamer Card and he will be added to your favourite list.
+Otherwise, go to Edit Favourite List and add the streamers by login name.
 Hit back and the application will restart with the new list.
 
 #### Remove a streamer to your favourite list
-Same thing, click the Search button then type your streamer id (username) and validate (Enter)
-If the username exists in your favorite list, he/she will be removed.
+Go to Edit Favourite List, click on the name of the streamer and he will be removed from the list.
 Hit back and the application will restart with the new list.
 
 
@@ -47,17 +45,13 @@ Install it, you may need to select "Install anyway" (the package is signed by my
 * Modify the code if you wish to contribute (your contribution is welcome)
 * build release
 
-### TODO
-
-* Beautify streamer names and not rely on username only
-* Implement search
-
 ## Help
 
 Feel free to open an issue in case of a problem.
 
 ## Version History
-
+* 1.0.54313
+    * Replaced the GQL query ChannelVideoShelvesQuery (not working anymore) to FilterableVideoTower_Videos to get VOD streams
 * 1.0.36094
     * Fixed live, Edit Favourite Streamers list, bug fixes 
 * 1.0.1
