@@ -238,7 +238,7 @@ class PlaybackVideoFragment(private val watchFromPosition: Long = 0) : VideoSupp
         val timeDifference = now.time - created.time
         val daysDifference = timeDifference / (1000 * 3600 * 24)
 
-        val broadcastType = vodData?.getString("broadcastType")?.toLowerCase()
+        val broadcastType = vodData?.getString("broadcastType")?.lowercase()
         var startQuality = 8534030
 
         for ((resKey, resValue) in orderedResolutions) {

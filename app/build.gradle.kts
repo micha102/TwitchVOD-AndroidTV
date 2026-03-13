@@ -11,7 +11,7 @@ val minorVersion = 0
 val customVersionCode = calculateVersionCode()
 android {
     namespace = "meta11ica.tn.twitchvod"
-    compileSdk = 34
+    compileSdk = 36
     useLibrary("org.apache.http.legacy")
     buildFeatures {
         buildConfig = true
@@ -22,7 +22,7 @@ android {
         // Set the version code using a dynamic value
         applicationId = namespace
         minSdk = 21
-        targetSdk = 34
+        targetSdk = 36
         versionCode = customVersionCode
         resValue("integer", "app_version_code", versionCode.toString())
 
@@ -42,12 +42,10 @@ android {
 
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
+
     // MY POSTBUILD TASK
 
         gradle.buildFinished {
@@ -94,7 +92,6 @@ dependencies {
     implementation("androidx.media3:media3-ui-leanback:1.2.1")
     implementation("androidx.media3:media3-session:1.2.1")
     implementation("androidx.media3:media3-exoplayer-hls:1.2.1")
-
 }
 
 
